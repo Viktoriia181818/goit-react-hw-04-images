@@ -12,7 +12,7 @@ export const Modal = ({src, alt, handleClose}) => {
   })
    const  handleKeyDown = event => {
     if (event.code === 'Escape') {
-      this.handleModalClose();
+      this.handleClose();
     }
   };
 
