@@ -4,12 +4,13 @@ import { useEffect } from 'react';
 
 export const Modal = ({src, alt, handleClose}) => {
     useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-  })
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      }
+  }, [])
 
-  useEffect(() => {
-    window.removeEventListener('keydown', handleKeyDown);
-  })
+ 
    const  handleKeyDown = event => {
     if (event.code === 'Escape') {
       this.handleClose();
