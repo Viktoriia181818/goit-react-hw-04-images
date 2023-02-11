@@ -14,7 +14,7 @@ export const Modal = ({src, alt, handleClose}) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  });
+  },[handleClose]);
 
 
     // const { src, alt, handleClose } = this.props;
