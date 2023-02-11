@@ -3,19 +3,19 @@ import css from './Modal.module.css';
 import { useEffect } from 'react';
 
 export const Modal = ({src, alt, handleClose}) => {
-    useEffect(() => {
-      window.addEventListener('keydown', handleKeyDown);
-      return () => {
-        window.removeEventListener('keydown', handleKeyDown);
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        handleClose();
       }
-  }, [])
+    };
 
- 
-   const  handleKeyDown = event => {
-    if (event.code === 'Escape') {
-      this.handleClose();
-    }
-  };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  });
+
 
     // const { src, alt, handleClose } = this.props;
 
